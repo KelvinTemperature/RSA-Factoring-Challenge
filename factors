@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # library to get arguments
 import sys
-
+import math
 
 # fn unpack number factorial
 def fc():
@@ -17,14 +17,15 @@ def fc():
                         print("{}={}*{}".format(revnumber, revnumber // 2, 2))
                         continue
                 i = 3
-                while i < revnumber // 2:
+                limit = math.isqrt(revnumber) + 1
+                while i < limit:
                     if revnumber % i == 0:
                         print("{}={}*{}".format(revnumber, revnumber // i, i))
                         break
                     i = i + 2
-                if i == (revnumber // 2) + 1:
+                else:
                     print("{}={}*{}".format(revnumber, revnumber, 1))
-    except (IndexError):
+    except (ValueError, IndexError):
         pass
 
 
